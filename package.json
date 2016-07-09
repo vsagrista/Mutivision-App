@@ -1,0 +1,25 @@
+{
+  "name": "meanstackapp",
+  "version": "1.0.0",
+  "description": "An app made entirely with JS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vsagrista/Mutivision-App.git"
+  },
+  "author": "Victor Sagrista Lopez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vsagrista/Mutivision-App/issues"
+  },
+  "homepage": "https://github.com/vsagrista/Mutivision-App#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  },
+  "devDependencies": {
+    "bower": "^1.7.9"
+  }
+}
