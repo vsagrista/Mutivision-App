@@ -1,10 +1,11 @@
-var express = require('express');
-var path = require('path');
-var stylus = require('stylus');
+var express = require('express'),
+  stylus = require('stylus'),
+  app = express(),
+  logger = require('morgan'),
+  bodyParser = require('body-parser'),
+  mongoose = require('mongoose');
+
 var env = process.env.NODE_ENV =  process.env.NODE_ENV || 'development';
-var app = express();
-var logger = require('morgan');
-var bodyParser = require('body-parser');
 
 
 function compile(str, path) {
@@ -23,6 +24,14 @@ app.use(stylus.middleware(
   }
 ));
 app.use(express.static(__dirname + '/public'));
+
+mongoose.connect('mongodb://localhost:27017/multivision');
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'Connection error...'));
+db.once('open', function callBack(){
+	console.log('The connection was opened');
+});
+
 app.get('/partials/:partialPath', function(req, res){
   res.render('partials/' + req.params.partialPath);
 });
